@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Khaen Inay | Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 8%;
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 120px 8% 80px;
+
+            background:
+                radial-gradient(circle at top right, #164e63, transparent 35%),
+                radial-gradient(circle at bottom left, #312e81, transparent 35%),
+                #0f172a;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            color: #cbd5e1;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 13px 28px;
+
+            background: #38bdf8;
+            color: #082f49;
+
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-4px);
+            background: #7dd3fc;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+        }
+
+        /* ABOUT */
+
+        .about-container {
+            max-width: 900px;
+            margin: auto;
+
+            background: #1e293b;
+            padding: 40px;
+
+            border-radius: 20px;
+            border: 1px solid #334155;
+        }
+
+        .about-container p {
+            color: #cbd5e1;
+            font-size: 17px;
+            margin-bottom: 18px;
+        }
+
+        /* INFO */
+
+        .info-grid {
+            max-width: 900px;
+            margin: 40px auto 0;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+        }
+
+        .info-card h3 {
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        /* SKILLS */
+
+        .skills {
+            max-width: 900px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: #1e293b;
+            padding: 25px;
+            text-align: center;
+            border-radius: 15px;
+
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+        }
+
+        .skill h3 {
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        /* HOBBIES */
+
+        .hobbies {
+            max-width: 900px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .hobby {
+            padding: 35px 20px;
+            text-align: center;
+
+            background: #1e293b;
+            border-radius: 15px;
+            border: 1px solid #334155;
+
+            transition: 0.3s;
+        }
+
+        .hobby:hover {
+            transform: scale(1.04);
+        }
+
+        .hobby .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hobby h3 {
+            color: #38bdf8;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .project {
+            background: #1e293b;
+            padding: 30px;
+            margin-bottom: 20px;
+
+            border-left: 4px solid #38bdf8;
+            border-radius: 10px;
+        }
+
+        .project h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #cbd5e1;
+        }
+
+        /* GOALS */
+
+        .goal-box {
+            max-width: 900px;
+            margin: auto;
+
+            text-align: center;
+            padding: 50px;
+
+            background: linear-gradient(135deg, #164e63, #312e81);
+            border-radius: 20px;
+        }
+
+        .goal-box p {
+            font-size: 18px;
+            color: #e2e8f0;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 10px;
+            color: #cbd5e1;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+
+            background: #020617;
+            color: #94a3b8;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            .info-grid,
+            .skills,
+            .hobbies {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">KHAEN.</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HOME -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Hello, I'm <span>Khaen</span></h1>
+
+            <h2>Grade 11 Student</h2>
+
+            <p>
+                Welcome to my personal portfolio!
+                This website is a little introduction about who I am,
+                what I enjoy, what I can do, and what I hope to achieve
+                in the future.
+            </p>
+
+            <a href="#about" class="button">
+                Explore My Portfolio
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+        <div class="about-container">
+
+            <p>
+                Hi! My name is <strong>Khaen Inay</strong>.
+                I am a 16-year-old Grade 11 student from
+                Allacapan, Cagayan, Philippines.
+            </p>
+
+            <p>
+                I am currently focused on my studies while also
+                discovering my interests and developing new skills.
+                I believe that learning is not limited to the classroom.
+                Every experience can teach us something valuable.
+            </p>
+
+            <p>
+                I consider myself a person who is willing to learn,
+                improve, and try new things. My goal is to continue
+                growing as a student and prepare myself for my future.
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+            <div class="info-card">
+                <h3>Education</h3>
+                <p>Grade 11 Senior High School</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Location</h3>
+                <p>Allacapan, Cagayan, Philippines</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Age</h3>
+                <p>16 Years Old</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Role</h3>
+                <p>Student & Learner</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                <h3>Communication</h3>
+                <p>Expressing ideas clearly and respectfully.</p>
+            </div>
+
+            <div class="skill">
+                <h3>Teamwork</h3>
+                <p>Working together and supporting others.</p>
+            </div>
+
+            <div class="skill">
+                <h3>Creativity</h3>
+                <p>Thinking of new ideas and solutions.</p>
+            </div>
+
+            <div class="skill">
+                <h3>Time Management</h3>
+                <p>Managing schoolwork and responsibilities.</p>
+            </div>
+
+            <div class="skill">
+                <h3>Problem Solving</h3>
+                <p>Finding practical ways to solve challenges.</p>
+            </div>
+
+            <div class="skill">
+                <h3>Adaptability</h3>
+                <p>Being open to change and new experiences.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOBBIES -->
+
+    <section id="hobbies">
+
+        <h2 class="section-title">
+            My <span>Hobbies</span>
+        </h2>
+
+        <div class="hobbies">
+
+            <div class="hobby">
+                <div class="icon">🎮</div>
+                <h3>Gaming</h3>
+                <p>
+                    Add your favorite games and explain
+                    what you enjoy about gaming.
+                </p>
+            </div>
+
+            <div class="hobby">
+                <div class="icon">🎵</div>
+                <h3>Music</h3>
+                <p>
+                    Add your favorite music, artists,
+                    or songs here.
+                </p>
+            </div>
+
+            <div class="hobby">
+                <div class="icon">📚</div>
+                <h3>Learning</h3>
+                <p>
+                    I enjoy discovering new information
+                    and developing new skills.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <h2 class="section-title">
+            My <span>Projects</span>
+        </h2>
+
+        <div class="projects">
+
+            <div class="project">
+
+                <h3>School Project 01</h3>
+
+                <p>
+                    Add the name of one of your school projects here.
+                    Explain what the project was about, what your role
+                    was, and what you learned from completing it.
+                </p>
+
+            </div>
+
+
+            <div class="project">
+
+                <h3>School Project 02</h3>
+
+                <p>
+                    Add another project here. You can include
+                    research projects, presentations, group activities,
+                    websites, artwork, or other school work.
+                </p>
+
+            </div>
+
+
+            <div class="project">
+
+                <h3>Future Project</h3>
+
+                <p>
+                    This section can describe something you would
+                    like to create or accomplish in the future.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GOALS -->
+
+    <section>
+
+        <h2 class="section-title">
+            My <span>Future Goals</span>
+        </h2>
+
+        <div class="goal-box">
+
+            <p>
+                My goal is to successfully finish senior high school,
+                continue my education, and develop skills that will
+                help me build a successful future.
+
+                I want to discover what career fits my interests,
+                work hard toward my dreams, and make my family proud.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact">
+
+        <h2 class="section-title">
+            Get In <span>Touch</span>
+        </h2>
+
+        <p>
+            <strong>Name:</strong> Khaen Inay
+        </p>
+
+        <p>
+            <strong>Email:</strong> your-email@example.com
+        </p>
+
+        <p>
+            <strong>Location:</strong> Allacapan, Cagayan, Philippines
+        </p>
+
+        <a href="mailto:your-email@example.com" class="button">
+            Contact Me
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Khaen Inay. All Rights Reserved.
+        </p>
+
+        <p>
+            Grade 11 Student Portfolio
+        </p>
+
+    </footer>
+
+</body>
+</html>
